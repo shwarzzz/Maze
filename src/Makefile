@@ -27,19 +27,15 @@ install:
 uninstall:
 	@rm -rf ../build
 	@echo "Uninstall completed!"
-	
-dvi:
-	open doc.md
-	
+
 dist: 
 	@mkdir -p ../dist
 	@cp -R ../build/$(TARGET) ../dist
-	@cp doc.md ../dist 
 	@cp ../misc/images/start.png ../dist
 	@cp ../misc/images/generated.png ../dist
 	@cp ../misc/images/path.png ../dist
 	@cd ../dist && tar cvzf $(TARGET).tgz *
-	@cd ../dist && rm -rf $(TARGET) doc.md *.png
+	@cd ../dist && rm -rf $(TARGET) *.png
 	@echo "Archive creation completed successfully!"
 
 tests: maze.a
